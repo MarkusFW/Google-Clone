@@ -4,6 +4,13 @@
   height: 100vh;
 }
 
+.home__body{
+  display: flex;
+  align-items: center;
+}
+
+
+
 /*
 
 

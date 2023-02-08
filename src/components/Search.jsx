@@ -31,7 +31,7 @@ const Search = ({ hideButtons = false }) => {
   };
 
   return (
-    <form className="search">
+    <form className="search search__responsivCSS">
       <div className="search__input">
         <SearchIcon className="search__input--icon" />
         <input value={input} onChange={(e) => setInput(e.target.value)} />

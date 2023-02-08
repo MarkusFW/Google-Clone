@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AppsIcon from "@mui/icons-material/Apps";
 import { Avatar } from "@mui/material";
 import Search from "../components/Search";
+import "./CloneText.css"
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
         </div>
 
         <div className="home__header--right">
-          <Link to="gmail">Gmail </Link>
+          <a  target="_blank" href="https://clone-project-dffda.web.app/">Gmail </a>
           <Link to="images">Images</Link>
           <AppsIcon />
           <Avatar />
@@ -27,6 +28,7 @@ const Home = () => {
           src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
           alt=""
         />
+        <h1 className="home__bodyClone">Clone</h1>
         <div className="home__input--container">
           <Search   />
         </div>

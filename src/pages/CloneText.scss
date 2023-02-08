@@ -1,0 +1,36 @@
+
+$colors: #19F, #EA0, #E62, #C25;
+$size: 50;
+
+@mixin rainbow-shadow($colors, $offset: 0, $size: $size) {
+  $len: length($colors);
+  $outp: 0px 0px transparent;
+  @for $i from 1 through $size {
+    $ind: floor( max($i + $offset, 1) / $size * length($colors) ) % $len + 1;
+    $col: nth($colors, $ind);
+    $outp: #{$outp}, #{$i}px #{$i}px #{$col};
+  }
+  
+  text-shadow: $outp;
+}
+
+body { margin: 0; background: #222; }
+h1 {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  margin: -#{$size/2}px 0 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 60vh;
+  color: #eee;
+}
+.rainbow {
+  animation: animated-rainbow-shadow 1s infinite;
+}
+
+@keyframes animated-rainbow-shadow {
+  @for $i from 0 to $size + 1 {
+    #{$i / $size * 100}% {
+      @include rainbow-shadow($colors, $i);
+    }
+  }
+}

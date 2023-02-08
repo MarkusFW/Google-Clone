@@ -16,8 +16,8 @@ const SearchPage = () => {
   const [{ term }, dispatch] = useStateValue();
 
   // LIVE API CALL
-  const { data } = UseGoogleSearch(term)
-    console.log(data)
+  const { data } = UseGoogleSearch(term);
+  console.log(data);
 
   // Mock API call
   // const data = Response;
@@ -28,14 +28,14 @@ const SearchPage = () => {
     <div className="searchPage">
       <div className="searchPage__header">
         <div className="searchPage__header--items">
-            <Link to="/">
+          <Link className="searchPage__logoParent" to="/">
             <img
-                className="searchPage__logo"
-                src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                alt=""
+              className="searchPage__logo"
+              src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+              alt=""
             />
-            </Link>
-            <Search hideButtons />
+          </Link>
+          <Search hideButtons />
         </div>
 
         <div className="searchPage__options">
@@ -72,13 +72,9 @@ const SearchPage = () => {
             </div>
           </div>
         </div>
-
       </div>
 
-        
-
       <div className="searchPage__headerBody">
-        
         {term && (
           <div className="searchPage__results">
             <p className="searchPage__results--count">
@@ -89,7 +85,6 @@ const SearchPage = () => {
             {data?.items.map((item) => (
               <div className="searchPage__result">
                 <a href={item.link}>
-
                   {item.pagemap?.cse_image?.length > 0 &&
                     item.pagemap?.cse_image[0]?.src && (
                       <img
@@ -98,7 +93,6 @@ const SearchPage = () => {
                         className="searchPage__result--image"
                       />
                     )}
-
                   {item.displayLink} ▽
                 </a>
                 <a className="searchPage__result--title" href={item.link}>
